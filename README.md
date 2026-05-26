@@ -54,7 +54,7 @@ npx nx run-many -t test
 npx nx run-many -t lint
 
 # Run e2e tests
-npx nx e2e shop-e2e
+npx nx e2e shop
 
 # Run tasks in parallel
 
@@ -160,8 +160,7 @@ This feature helps maintain a healthy CI pipeline by automatically detecting and
 
 ```
 ├── apps/
-│   ├── shop/           [scope:shop]    - Angular e-commerce app
-│   ├── shop-e2e/                       - E2E tests for shop
+│   ├── shop/           [scope:shop]    - Angular e-commerce app (Cypress e2e in apps/shop/cypress)
 │   └── api/            [scope:api]     - Backend API with Docker
 ├── libs/
 │   ├── shop/
