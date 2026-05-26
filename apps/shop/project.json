@@ -20,12 +20,7 @@
             "input": "apps/shop/public"
           }
         ],
-        "styles": ["apps/shop/src/styles.css"],
-        "server": "apps/shop/src/main.server.ts",
-        "ssr": {
-          "entry": "apps/shop/src/server.ts"
-        },
-        "outputMode": "server"
+        "styles": ["apps/shop/src/styles.css"]
       },
       "configurations": {
         "production": {
@@ -41,7 +36,12 @@
               "maximumError": "8kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "server": "apps/shop/src/main.server.ts",
+          "ssr": {
+            "entry": "apps/shop/src/server.ts"
+          },
+          "outputMode": "server"
         },
         "development": {
           "optimization": false,
@@ -78,7 +78,7 @@
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "shop:build",
+        "buildTarget": "shop:build:development",
         "port": 4200,
         "staticFilePath": "dist/apps/shop/browser",
         "spa": true

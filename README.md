@@ -1,22 +1,22 @@
-# Nx Angular Repository
+# Nx Angular Repository (CI Test)
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
 ✨ A repository showcasing key [Nx](https://nx.dev) features for Angular monorepos ✨
+
 ## Finish your Nx platform setup
 
 🚀 [Finish setting up your workspace](https://cloud.nx.app/connect/j90CArRqHi) to get faster builds with remote caching, distributed task execution, and self-healing CI. [Learn more about Nx Cloud](https://nx.dev/ci/intro/why-nx-cloud).
+
 ## 📦 Project Overview
 
 This repository demonstrates a production-ready Angular monorepo with:
 
 - **2 Applications**
-
   - `shop` - Angular e-commerce application with product listings and detail views
   - `api` - Backend API with Docker support serving product data
 
 - **6 Libraries**
-
   - `@org/feature-products` - Product listing feature (Angular)
   - `@org/feature-product-detail` - Product detail feature (Angular)
   - `@org/data` - Data access layer for shop features
@@ -25,7 +25,7 @@ This repository demonstrates a production-ready Angular monorepo with:
   - `@org/products` - API product service library
 
 - **E2E Testing**
-  - `shop-e2e` - Playwright tests for the shop application
+  - Cypress tests for the shop application (in `apps/shop/cypress`)
 
 ## 🚀 Quick Start
 
@@ -54,7 +54,7 @@ npx nx run-many -t test
 npx nx run-many -t lint
 
 # Run e2e tests
-npx nx e2e shop-e2e
+npx nx e2e shop
 
 # Run tasks in parallel
 
@@ -110,19 +110,19 @@ npx nx release
 
 [Learn more about Docker integration →](https://nx.dev/recipes/nx-release/release-docker-images)
 
-### 3. 🎭 Playwright E2E Testing
+### 3. 🌲 Cypress E2E Testing
 
-End-to-end testing with Playwright is pre-configured:
+End-to-end testing with Cypress is pre-configured for the shop app:
 
 ```bash
-# Run e2e tests
-npx nx e2e shop-e2e
+# Run e2e tests against the dev server
+npx nx e2e shop
 
-# Run e2e tests in CI mode
-npx nx e2e-ci shop-e2e
+# Run e2e tests in CI mode (uses serve-static + atomized specs)
+npx nx e2e-ci shop
 ```
 
-[Learn more about E2E testing →](https://nx.dev/technologies/test-tools/playwright/introduction#e2e-testing)
+[Learn more about E2E testing →](https://nx.dev/technologies/test-tools/cypress/introduction)
 
 ### 4. ⚡ Vitest for Unit Testing
 
@@ -160,8 +160,7 @@ This feature helps maintain a healthy CI pipeline by automatically detecting and
 
 ```
 ├── apps/
-│   ├── shop/           [scope:shop]    - Angular e-commerce app
-│   ├── shop-e2e/                       - E2E tests for shop
+│   ├── shop/           [scope:shop]    - Angular e-commerce app (Cypress e2e in apps/shop/cypress)
 │   └── api/            [scope:api]     - Backend API with Docker
 ├── libs/
 │   ├── shop/
@@ -268,7 +267,7 @@ Nx Console is an editor extension that enriches your developer experience. It le
 - [Angular Monorepo Tutorial](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial)
 - [Module Boundaries](https://nx.dev/features/enforce-module-boundaries)
 - [Docker Integration](https://nx.dev/recipes/nx-release/release-docker-images)
-- [Playwright Testing](https://nx.dev/technologies/test-tools/playwright/introduction#e2e-testing)
+- [Cypress Testing](https://nx.dev/technologies/test-tools/cypress/introduction)
 - [Vite with Angular](https://nx.dev/recipes/vite)
 - [Nx Cloud](https://nx.dev/ci/intro/why-nx-cloud)
 - [Releasing Packages](https://nx.dev/features/manage-releases)
